@@ -1,0 +1,181 @@
+/* Header/Footer */
+
+@media (max-width: 767px) { 
+  .nikeDesktopHeader,
+  .nikeDesktopFooter {
+      display: none !important;
+   }
+}
+
+@media (min-width: 768px) { 
+  .bwt-store-show-header {
+    margin-top: 108px !important;
+  }
+
+  .nikeMobileHeader,
+  .nikeMobileFooter {
+      display: none !important;
+   }
+}
+
+/* Hide Breadcrumb Text on Mobile */
+@media only screen and (max-width: 532px) { 
+  .bw-appointment-header-column .appointment_link, .bw-appointment-header-column .choose_store_link {
+      color: transparent !important;
+    }
+  }
+  
+/*NTC and NRC Links*/
+.bwt-store-service-body-container .nikeRunTrainLinks {
+	color: #fa5400 !important;
+	text-decoration: underline !important;
+}
+
+.nikeRunTrainLinks {
+	padding: 0px !important;	
+	background: none !important;
+	border: 0px !important;
+}
+
+/* Stop confirm button from breaking box on iPhone5 */
+@media only screen and (max-width: 375px) {
+  .store-container .button-clean {
+    margin-left: 68% !important;
+  }
+}
+
+input#name::-webkit-input-placeholder, input#email::-webkit-input-placeholder {
+   letter-spacing: normal !important;
+}
+
+@media screen and (min-width: 513px) {
+   .bw-appointment-header-close-container, .bw-confirmation-close-button {
+         display: none !important;
+   }
+}
+
+/* Other */
+.bw-appointment-services .bw-appointment-service-link { min-height: 273.188px !important; }
+
+.bwt-store-directions-mobile-link { color: #000 !important; }
+.bwt-store-directions-mobile-link:hover { color: #fa5400 !important; }
+
+.bwt-store-hours-calender .bwt-special-day, .bwt-special .bwt-store-hour-date, .bwt-special .bwt-store-hour-name,
+.bwt-special .bwt-store-hour-range { color: #fa5400 !important; }
+
+.bwt-modal-store-hours-wrapper .bwt-hours-close-modal {
+   font-size: 20px !important;
+   color: #000 !important;
+   font-weight: normal !important;
+}
+
+.bwt-modal-store-hours-wrapper .bwt-hours-close-modal:hover { color: #fa5400 !important; }
+
+.bwt-store-type-list > .bwt-store-type .bwt-store-type-image-container {
+   background-image: url('https://s3.amazonaws.com/assets.brickworksoftware.com/Nike/browse-all-stores.jpg') !important;
+}
+
+/* Nearby Stores Link Store Page Desktop*/
+.bwt-stores-nearby-link {
+	color: #000 !important;
+}
+
+.bwt-stores-nearby-link:hover {
+	color: #fa5400 !important;
+}
+
+/*NRC and NTC Links*/
+@media only screen and (min-width: 32.125em) {
+	.bwt-store-service-body-container .nikeRunTrainLinks {
+		padding: 10px 18px !important;
+	    display: inline-block !important;
+	    text-decoration: none !important;
+	    text-align: center !important;
+	    color: #000 !important;
+	    background: #ffffff !important;
+	    border: 2px solid #e5e5e5 !important;
+	    border-radius: 2px !important;
+	}
+}
+
+@media only screen and (min-width: 32.125em) {
+	.bwt-store-service-body-container .nikeRunTrainLinks:hover {
+		color: #fa5400 !important;
+	}
+}
+
+@media only screen and (min-width: 32.125em) {
+    .bwt-store-service-body-container .nikeRunTrainLinks {
+        padding:12px 23px 9px;
+        font-family: "TradeGothicCond", Helvetica, Arial, sans-serif;
+        font-size: 0.9375rem;
+        text-transform: uppercase
+    }
+}
+
+@media only screen and (min-width: 32.125em) {
+    .bwt-store-service-body-container .nikeRunTrainLinks {
+        margin:10px 0;
+        font-size: 12px
+    }
+}
+
+@media only screen and (max-width: 32.064em) {
+	.bwt-store-service-body-container .nikeRunTrainLinks {
+		padding: 10px 18px !important;
+	    display: inline-block !important;
+	    text-decoration: none !important;
+	    text-align: center !important;
+	    color: #ffffff !important;
+	    background: #000 !important;
+	    border: 1px solid #000 !important;
+	    border-radius: 2px !important;
+	    -webkit-transition: all 0.2s ease-out !important;
+	    transition: all 0.2s ease-out !important;
+	}
+}
+
+.bwt-index-store-services .nikeRunTrainLinks {
+	padding: 0px !important;
+	background: none !important;
+	border: 0px !important;
+}
+
+.bwt-appointment-submit { color: #000 !important; }
+
+.bwt-store-show-name { 
+  font-family: "TradeGothicCond", Helvetica, Arial, sans-serif !important;
+  text-transform: uppercase !important;
+
+}
+.bwt-store-description h6 { font-family: "TradeGothicCond", Helvetica, Arial, sans-serif !important;}
+.bwt-store-description p { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;}
+
+.bwt-store-service-image-container .bwt-appointment-modal-button-wrapper, .bwt-store-service-body-container .bwt-appointment-modal-button-wrapper {display: none !important;}
+
+.bwt-store-show .descriptionBookingLink { margin-bottom: -1rem !important; }
+
+.leaflet-popup-content .descriptionBookingLink, .leaflet-popup-content .nikeEventLink {display: none !important}
+
+.bwt-store-show .indexBookingLink {display: none !important;}
+
+span.bwt-store-main-alert, div.bwt-index-nearby-store-distance {font-size: 14px !important;}
+
+.bw-appointment-hero-image { background-position: top center !important; }
+
+.bw-appointment-hero-copy { color: rgba(0,0,0,0) !important; }
+
+/* Appointment Modal Legal*/
+.bwt-email-opt-field input[type=checkbox]:checked+label { 
+  background: none !important; 
+  }
+
+input#customer_email_opt_in { display: none !important; }
+
+label.bwt-rsvp-email-opt-placeholder {
+  font-family: "TradeGothicRegular", Helvetica, sans-serif !important;
+  font-size: 13px !important;
+  color: #666 !important;
+}
+
+textarea#question_194 { display: none !important; }

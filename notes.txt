@@ -1,0 +1,25 @@
+http://guides.rubyonrails.org/active_record_validations.html
+jnieve@gmail.com
+
+From agustin to Everyone: (12:15 pm)
+https://docs.mongodb.com/v3.2/tutorial/install-mongodb-on-os-x/
+From agustin to Everyone: (12:21 pm)
+gem 'bson_ext'
+rails g mongoid:config
+grep -e sqlite -R .
+From agustin to Everyone: (12:32 pm)
+mongoid.rb
+Mongoid.load!(Rails.root.join("/config/mongoid.yml"))
+From agustin to Everyone: (12:42 pm)
+grep -e active_record -R .
+rails new app_name --skip-active-record
+From agustin to Everyone: (12:49 pm)
+./config/routes.rb
+./app/controllers/subforums_controller.rb
+gem 'mongoid', '~> 6.0.0'
+bundle install
+From agustin to Everyone: (12:54 pm)
+rails g mongoid:config
+From agustin to Everyone: (01:09 pm)
+http://guides.rubyonrails.org/active_record_validations.html
+jnieve@gmail.com
