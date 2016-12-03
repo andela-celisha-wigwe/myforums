@@ -23,3 +23,10 @@ rails g mongoid:config
 From agustin to Everyone: (01:09 pm)
 http://guides.rubyonrails.org/active_record_validations.html
 jnieve@gmail.com
+
+guard
+spork
+rspec on
+
+test for the new user controller
+and the user model

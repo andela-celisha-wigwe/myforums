@@ -9,5 +9,6 @@ class Subforum
 	validates_presence_of :name, :description
 	validates_uniqueness_of :name
 
-	# threads and posts.
+	has_many :posts
+
 end

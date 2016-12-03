@@ -1,15 +1,20 @@
+require 'securerandom'
+
 class User
   include Mongoid::Document
   include Mongoid::Timestamp
 
   field :username, type: String
-  field :password, type: String
   field :auth_token, type: String
 
   validate_length_of :username, :minimum => 8
   validates_presence_of :username
   validates_uniqueness_of :username
   validates_presence_of :password
+
+  has_secure_password
+
+  before_create :set_auth_token
 
   private
 

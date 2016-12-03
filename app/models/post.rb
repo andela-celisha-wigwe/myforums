@@ -7,4 +7,7 @@ class Post
 
   validates :title, presence: true
   validates_presence_of :title, :body
+
+  belongs_to :subforum
+  has_many :messages
 end

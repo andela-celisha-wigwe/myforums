@@ -8,7 +8,7 @@ class SubforumsControllerTest < ActionDispatch::IntegrationTest
   test "list action works as expected" do
     get @@url
      assert_generates @@url, { :controller => "subforums", :action => "list"}
-    assert_response :success 
+     assert_response :success 
   end
 
   test "create method works as expected" do

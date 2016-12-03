@@ -3,4 +3,6 @@ class Message
   include Mongoid::Timestamps
   
   field :body, type: String
+
+  belongs_to :post
 end
