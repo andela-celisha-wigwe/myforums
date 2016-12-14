@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 	
 	scope '/subforums' do
 		get '/' => 'subforums#list'
+		match '/' => 'subforums#list', via: :options
 		get '/:id' => 'subforums#show'
 		post '/' => 'subforums#create'
 		put '/:id' => 'subforums#update'
