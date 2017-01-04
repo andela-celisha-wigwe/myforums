@@ -2,36 +2,29 @@ require 'securerandom'
 
 class User
   include Mongoid::Document
-  include Mongoid::Timestamp
+  include ActiveModel::SecurePassword
+  include Mongoid::Timestamps
 
   field :username, type: String
   field :auth_token, type: String
+  field :password_digest, type: String
 
-  validate_length_of :username, :minimum => 8
+  validates_length_of :username, :minimum => 8
   validates_presence_of :username
   validates_uniqueness_of :username
   validates_presence_of :password
 
   has_secure_password
 
-  before_create :set_auth_token
+  after_create :set_auth_token
 
-  private
+  # private
 
   def set_auth_token
   	return self.auth_token if self.auth_token.present?
-  	self.auth_token - SecureRandom.uuid.gsub(/\-/, '')
+  	self.auth_token = SecureRandom.uuid.gsub(/\-/, '')
   	self.save
   	return self.auth_token
   end
 
-end
-
-=begin
-	hash passwords
-	modify app controller
-	fixed token against auth token, returns auth_token,
-	
-rescue Exception => e
-	
 end

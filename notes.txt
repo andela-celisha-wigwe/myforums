@@ -30,3 +30,14 @@ rspec on
 
 test for the new user controller
 and the user model
+
+
+
+=begin
+	hash passwords
+	modify app controller
+	fixed token against auth token, returns auth_token,
+	
+rescue Exception => e
+	
+end

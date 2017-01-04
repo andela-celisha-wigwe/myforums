@@ -1,9 +1,15 @@
 require 'test_helper'
 
 class MessagesControllerTest < ActionDispatch::IntegrationTest
-  @@headers = {"Authorization" => "Token augustine-roy-session"}
 
   setup do
+    user = User.create({
+      :username => "randomuser",
+      :password => "random",
+      :password_confirmation => "random"
+    })
+    @@headers = {"Authorization" => "Token #{user.set_auth_token}"}
+
     @@subforum = Subforum.new
     @@subforum.name = Time.now.to_i.to_s[0..14]
     @@subforum.description = "SubDesc"
