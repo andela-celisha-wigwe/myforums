@@ -30,5 +30,13 @@ Rails.application.routes.draw do
 		delete '/:id' => 'messages#delete'
 	end
 
+	match "/login", as: "login_user", to: "users#auth", via: [:options, :post]
+	match "/register", as: "create_user", to: "users#create", via: [:options, :post]
+
+	# scope '/register' do
+	# 	match '/' => 'users#create', via: :post #[:options, :post]
+	# 	post '/' => 'users#create',
+	# end
+
 	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

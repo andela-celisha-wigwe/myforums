@@ -2,13 +2,20 @@ require 'test_helper'
 
 class SubforumsControllerTest < ActionDispatch::IntegrationTest
 
-  @@headers = {"Authorization" => "Token augustine-roy-session"}
-  @@url = '/subforums'
-  
+  setup do
+    @@user = User.create({
+      :username => "randomuser",
+      :password => "random",
+      :password_confirmation => "random"
+    })
+    @@headers = {"Authorization" => "Token #{@@user.set_auth_token}"}
+    @@url = '/subforums'
+  end
+
   test "list action works as expected" do
     get @@url
-     assert_generates @@url, { :controller => "subforums", :action => "list"}
-     assert_response :success 
+    assert_generates @@url, { :controller => "subforums", :action => "list"}
+    assert_response :success 
   end
 
   test "create method works as expected" do
@@ -55,7 +62,11 @@ class SubforumsControllerTest < ActionDispatch::IntegrationTest
 
   	delete @@url + "/#{subforum.id}", headers: @@headers
     assert_generates @@url + "/1", { :controller => "subforums", :action => "delete", :id => "1" }
-  	assert_response :success
+    assert_response :success
     assert Subforum.where(_id: subforum.id).count == 0
+  end
+
+  teardown do
+    assert @@user.delete
   end
 end

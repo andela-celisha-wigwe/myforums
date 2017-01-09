@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
 
   TOKEN = "augustine-roy-session"
 
-  before_action :authenticate, :cors_preflight_check
+  before_action :cors_preflight_check, :authenticate
   after_action :cors_set_access_control_headers
 
   @current_user = nil
@@ -22,27 +22,19 @@ class ApplicationController < ActionController::Base
 	# request, return only the necessary headers and return an empty
 	# text/plain.
 	def cors_preflight_check
-		if request.method == :options
-			headers['Access-Control-Allow-Origin'] = '*'
-			headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
-			headers['Access-Control-Request-Method'] = '*'
-			headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-			render :text => '', :content_type => 'text/plain'
+		if request.method == "OPTIONS"
+      headers['Access-Control-Allow-Origin'] = '*'
+      headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+      headers['Access-Control-Request-Method'] = '*'
+      headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+      render :json => {}, :content_type => 'application/json'
 		end
 	end
 
   def authenticate
-    # logger = Logger.new(STDOUT) 
-    # config.logger = Log4r::Logger.new("Application Log")
-    
-    # authenticate_or_request_with_http_token do |token, options|
-    # 	Rails.logger.info "roy->#{token}"
-    # 	ActiveSupport::SecurityUtils.secure_compare(
-    # 		::Digest::SHA256.hexdigest(token), # REQUEST IS SENDING THIS TOKEN
-    # 		::Digest::SHA256.hexdigest(TOKEN), # CURRENT TOKEN
-    # 	)
-    # end
-
+    return true if (request.method == "OPTIONS")
+    puts request.method
+    puts "   : request method"
     authenticate_or_request_with_http_token do |token|
       @current_user = User.find_by(auth_token: token)
       @current_user

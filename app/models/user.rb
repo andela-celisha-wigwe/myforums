@@ -11,19 +11,21 @@ class User
 
   validates_length_of :username, :minimum => 8
   validates_presence_of :username
-  validates_uniqueness_of :username
+  # validates_uniqueness_of :username
   validates_presence_of :password
 
   has_secure_password
 
-  after_create :set_auth_token
+  before_save :set_auth_token
+  # before_create :set_auth_token
 
-  # private
+  private
 
   def set_auth_token
+    puts "   auth_token"
   	return self.auth_token if self.auth_token.present?
   	self.auth_token = SecureRandom.uuid.gsub(/\-/, '')
-  	self.save
+  	# self.save
   	return self.auth_token
   end
 

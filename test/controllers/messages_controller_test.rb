@@ -3,12 +3,12 @@ require 'test_helper'
 class MessagesControllerTest < ActionDispatch::IntegrationTest
 
   setup do
-    user = User.create({
+    @@user = User.create({
       :username => "randomuser",
       :password => "random",
       :password_confirmation => "random"
     })
-    @@headers = {"Authorization" => "Token #{user.set_auth_token}"}
+    @@headers = {"Authorization" => "Token #{@@user.set_auth_token}"}
 
     @@subforum = Subforum.new
     @@subforum.name = Time.now.to_i.to_s[0..14]
@@ -24,7 +24,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
     @@message.body = "A random body"
     assert @@message.save
 
-    @@url = "/posts/#{@@post.id}/message"
+    @@url = "/posts/#{@@post.id}/messages"
   end
   
   test "list action works as expected" do
@@ -66,8 +66,10 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   teardown do
-    @@subforum.delete
-    @@post.delete
-    @@message.delete
+    assert @@subforum.delete
+    assert @@post.delete
+    assert @@message.delete
+
+    assert @@user.delete
   end
 end
