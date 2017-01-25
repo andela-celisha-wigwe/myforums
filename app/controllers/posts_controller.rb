@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 	before_action :authenticate, except: [:show, :list]
 
 	def list
-		render json: Subforum.find(params[:subforum]).posts.all
+		render json: Subforum.find(params[:subforum]).posts.order(created_at: :desc)
 	end
 
 	def show

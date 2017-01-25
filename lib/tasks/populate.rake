@@ -8,8 +8,8 @@ namespace :db do
 		# Create some subforums
 		15.times do |n|
 			Subforum.create!(
-				:name =>  "App_Subforum_#{n}_#{Faker::Lorem.word}"[0..14],
-				:description =>  Faker::Lorem.paragraph
+				:name =>  "App_Subforum_#{n}_#{Faker::Hipster.word}"[0..14],
+				:description =>  Faker::Hipster.paragraph
 			)
 		end
 
@@ -17,8 +17,8 @@ namespace :db do
 		Subforum.all.each do |subforum|
 			25.times do
 				subforum.posts.create!(
-					:title =>  Faker::Lorem.sentence,
-					:body => Faker::Lorem.paragraph(3),
+					:title =>  Faker::Hipster.sentence,
+					:body => Faker::Hipster.paragraph(3),
 				)
 			end
 		end
@@ -27,7 +27,7 @@ namespace :db do
 		Post.all.each do |post|
 			50.times do
 				post.messages.create!(
-					:body => Faker::Lorem.paragraph,
+					:body => Faker::Hipster.paragraph,
 				)
 			end
 		end

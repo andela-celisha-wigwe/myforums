@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
 	before_action :authenticate, except: [:show, :list]
 
 	def list
-		render json: Post.find(params[:post]).messages.all
+		render json: Post.find(params[:post]).messages.order(created_at: :desc)
 	end
 
 	def show
