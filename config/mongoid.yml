@@ -10,7 +10,7 @@ development:
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - localhost:27017
+        - db:27017 # changed from localhost:27017 to db:27017
       options:
   options:
     #
@@ -19,7 +19,7 @@ test:
     default:
       database: roy_forums
       hosts:
-        - localhost:27017
+        - db:27017 # changed from localhost:27017 to db:27017
       options:
         consistency: :strong
         # In the test environment we lower the retries and retry interval to

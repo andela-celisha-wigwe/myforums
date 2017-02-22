@@ -1,0 +1,23 @@
+version: '2'
+services:
+  db:
+    image: mongo
+  web:
+    build: .
+    command: bundle exec rails s -p 4000 -b '0.0.0.0'
+    volumes:
+      - .:/myapp # . means your current directory
+                 # /myapp means the directory /myapp in the container
+                 # : means to map the first one with the second and build a volume
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+  frontend:
+    image: roy_forums_ui
+    command: npm run wds
+    ports:
+      - "9000:9000"
+    depends_on:
+      - web
+# docker-compose run web rails new . --force --database=mongo --skip-bundle
