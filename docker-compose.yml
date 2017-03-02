@@ -10,14 +10,18 @@ services:
                  # /myapp means the directory /myapp in the container
                  # : means to map the first one with the second and build a volume
     ports:
-      - "4000:4000"
+      - "4000:4000" # port will map the 4000 from container to system
+    expose:
+      - "4000" # will expose the port of the container in the network of containers.
     depends_on:
       - db
   frontend:
     image: roy_forums_ui
     command: npm run wds
     ports:
-      - "9000:9000"
+      - "8080:9000"
+    expose:
+      - "9000"
     depends_on:
       - web
 # docker-compose run web rails new . --force --database=mongo --skip-bundle
