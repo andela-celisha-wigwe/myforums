@@ -26,9 +26,9 @@ production:
       database: <%= ENV['MONGO_DB'] %>
       hosts:
         - <%= ENV['MONGO_HOST'] %>
-      username: <%= ENV['USERNAME'] %>
-      password: <%= ENV['PASSWORD'] %>
       options:
+        user: <%= ENV['USERNAME'] %>
+        password: <%= ENV['PASSWORD'] %>
   options:
     #
 test:
