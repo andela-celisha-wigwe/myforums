@@ -11,6 +11,23 @@ development:
       # of host:port pairs. (required)
       hosts:
         - db:27017 # changed from localhost:27017 to db:27017
+        - 
+      options:
+  options:
+    #
+production:
+  adapter: 'mongoid'
+  # Configure available database sessions. (required)
+  clients:
+    # Defines the default session. (required)
+    default:
+      # Defines the name of the default database that Mongoid can connect to.
+      # (required).
+      database: <%= ENV['MONGO_DB'] %>
+      hosts:
+        - <%= ENV['MONGO_HOST'] %>
+      username: <%= ENV['USERNAME'] %>
+      password: <%= ENV['PASSWORD'] %>
       options:
   options:
     #

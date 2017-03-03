@@ -4,20 +4,20 @@ services:
     image: mongo
   web:
     build: .
-    command: bundle exec rails s -p 4000 -b '0.0.0.0'
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/myapp # . means your current directory
                  # /myapp means the directory /myapp in the container
                  # : means to map the first one with the second and build a volume
     ports:
-      - "4000:4000" # port will map the 4000 from container to system
+      - "3000:3000" # port will map the 3000 from container to system
     expose:
-      - "4000" # will expose the port of the container in the network of containers.
+      - "3000" # will expose the port of the container in the network of containers.
     depends_on:
       - db
   frontend:
     image: roy_forums_ui
-    command: npm run wds
+    command: npm run wds-docker
     ports:
       - "8080:9000"
     expose:

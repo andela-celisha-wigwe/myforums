@@ -41,3 +41,8 @@ and the user model
 rescue Exception => e
 	
 end
+
+
+
+- for generating secret key in production level applications
+- RAILS_ENV=production SECRET_KEY_BASE=key MONGO_DB=royforums MONGO_HOST=localhost:27017 MONGO_USERNAME= MONGO_PASSWORD= rails s
